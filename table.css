@@ -1,0 +1,73 @@
+table { 
+    width: 750px; 
+     border-collapse: collapse; /*  Collapses the borders of adjacent cells into a single border. */
+    margin:50px auto;
+    /*  Sets a margin of 50 pixels on top and bottom and auto for left and right margins, which centers the table horizontally. */
+    }
+  
+  
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+    }
+    /*  Sets the background color of odd rows to light gray (#eee), creating a striped effect. */
+  
+  th { 
+    background: #3498db; 
+    color: white; 
+    font-weight: bold; 
+    }
+  
+  td, th { 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    text-align: left; 
+    font-size: 18px;
+    }
+  
+ 
+  @media 
+  only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px)  {
+  
+    table { 
+        width: 100%; 
+    }
+  
+   
+    table, thead, tbody, th, td, tr { 
+      display: block; 
+    }
+    
+    /*  Changes the default display property of these elements to block, allowing for customized layout. */
+    thead tr { 
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+    /*  Hides the table header row off-screen while maintaining accessibility. */
+    tr { border: 1px solid #ccc; }
+    
+    td { 
+      border: none;
+      border-bottom: 1px solid #eee; 
+      position: relative;
+      padding-left: 50%; 
+    }
+  /* Styles table cells to remove borders, add a bottom border, position them relative to their container, and provide left padding. */
+    td:before { 
+     
+      position: absolute;
+     
+      top: 6px;
+      left: 6px;
+      width: 45%; 
+      padding-right: 10px; 
+      white-space: nowrap;
+     
+      content: attr(data-column);
+  
+      color: #000;
+      font-weight: bold;
+    }
+  /* Uses pseudo-elements to display the column labels before the content of each cell, positioned absolutely to the top left of each cell, with specific styling for color, font-weight, and width. */
+  }
